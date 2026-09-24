@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "validator": "hatch-pet validate_atlas.py --require-v2",
+  "pets": [
+    {"id": "hjj", "path": "pets/hjj/spritesheet.webp", "format": "WEBP", "mode": "RGBA", "columns": 8, "rows": 11, "spriteVersionNumber": 2, "width": 1536, "height": 2288, "errors": [], "warnings": []},
+    {"id": "afro-suit-pet", "path": "pets/afro-suit-pet/spritesheet.webp", "format": "WEBP", "mode": "RGBA", "columns": 8, "rows": 11, "spriteVersionNumber": 2, "width": 1536, "height": 2288, "errors": [], "warnings": []},
+    {"id": "green-horse-rider-pet", "path": "pets/green-horse-rider-pet/spritesheet.webp", "format": "WEBP", "mode": "RGBA", "columns": 8, "rows": 11, "spriteVersionNumber": 2, "width": 1536, "height": 2288, "errors": [], "warnings": []},
+    {"id": "muscle-black-shirt-pet", "path": "pets/muscle-black-shirt-pet/spritesheet.webp", "format": "WEBP", "mode": "RGBA", "columns": 8, "rows": 11, "spriteVersionNumber": 2, "width": 1536, "height": 2288, "errors": [], "warnings": []},
+    {"id": "teal-hair-pet", "path": "pets/teal-hair-pet/spritesheet.webp", "format": "WEBP", "mode": "RGBA", "columns": 8, "rows": 11, "spriteVersionNumber": 2, "width": 1536, "height": 2288, "errors": [], "warnings": []}
+  ]
+}

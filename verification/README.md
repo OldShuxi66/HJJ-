@@ -1,6 +1,5 @@
 # 校验记录
 
-- validation.json 是随此前 HJJ 安装包提供的校验结果。
-- hatch-pet-validation.json 是本次整理时对 pet/hjj/spritesheet.webp 重新运行 Codex v2 图集验证器生成的报告。
+`atlas-validation.json` 记录了合并时对五个桌宠图集运行的 Codex v2 结构校验结果。五个图集均为 RGBA WebP、8 列 × 11 行、1536 × 2288 像素，并通过 `--require-v2` 校验。
 
-两份报告均为通过状态。整理过程中没有改动精灵图；其 SHA-256 与当前本机正在使用的 HJJ 精灵图相同。哈希清单见仓库根目录 checksums.sha256。
+哈希清单见仓库根目录 `checksums.sha256`。校验报告不包含本机绝对路径，便于直接提交到 GitHub。
