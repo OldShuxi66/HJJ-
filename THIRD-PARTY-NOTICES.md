@@ -2,7 +2,7 @@
 
 ## Nai-wa Codex Pet
 
-HJJ 的跑步动画行使用并改编了 **Nai-wa Codex Pet** 精灵图中的部分跑步身体帧。上游项目由 Nai-Wa Codex Pet Contributors 发布：
+HJJ 的跑步动画行使用并改编了 **Nai-wa Codex Pet** 精灵图中的部分跑步身体帧。上游项目由 Nai-Wa Codex Pet Contributors 发布；本合集中的其他桌宠不应被理解为 Nai-wa 项目的作品：
 
 - 项目来源：<https://github.com/Maple498/nai-wa-codex-pet>
 - 上游图像许可：[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

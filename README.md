@@ -1,81 +1,92 @@
-# HJJ — Codex 桌宠
+# HJJ — Codex 桌宠合集
 
-HJJ 是一个适用于 Codex Desktop 自定义宠物功能的非官方社区桌宠。它是静态宠物资源，不需要后台程序、网络连接或额外 API。
+这是一个适用于 Codex Desktop 自定义宠物功能的社区桌宠合集。当前包含 HJJ 和另外四款像素风桌宠；每款桌宠都是独立的 Codex v2 资源，可以单独安装，也可以一次安装全部桌宠。
 
-![HJJ 动作总览](assets/contact-sheet.png)
+## 桌宠列表
+
+| ID | 名称 | 预览 |
+| --- | --- | --- |
+| `hjj` | HJJ | [动作总览](assets/hjj-contact-sheet.png) |
+| `afro-suit-pet` | 爆炸头西装桌宠 | [静止](assets/pets/afro-suit-idle.webp) / [拖动](assets/pets/afro-suit-drag.webp) |
+| `green-horse-rider-pet` | 绿马骑士桌宠 | [静止](assets/pets/green-horse-idle.webp) / [拖动](assets/pets/green-horse-drag.webp) |
+| `muscle-black-shirt-pet` | 健身肌肉桌宠 | [静止](assets/pets/muscle-idle.webp) / [拖动](assets/pets/muscle-drag.webp) |
+| `teal-hair-pet` | 青发桌宠 | [静止](assets/pets/teal-hair-idle.webp) / [拖动](assets/pets/teal-hair-drag.webp) |
 
 ## 安装
+
+安装脚本不需要 Python，只会把所选桌宠的 `pet.json` 和 `spritesheet.webp` 复制到 Codex 的宠物目录。已有不同版本时，脚本会先备份旧目录，不会删除其他桌宠。
 
 ### Windows
 
 在仓库根目录打开 PowerShell：
 
-    powershell -ExecutionPolicy Bypass -File .\install.ps1
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -PetId hjj
+```
+
+把 `hjj` 换成上表中的其他 ID 即可；安装全部桌宠：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -All
+```
 
 ### macOS / Linux
 
-    chmod +x ./install.sh
-    ./install.sh
+```bash
+chmod +x ./install.sh
+./install.sh hjj
+```
 
-安装脚本会把 [pet/hjj/](pet/hjj/) 中的两个运行文件复制到 $CODEX_HOME/pets/hjj；如果没有设置 CODEX_HOME，则使用默认的 ~/.codex/pets/hjj。若目标中已有不同版本，脚本会先把旧目录备份到 pet-backups/，不会删除其他桌宠。
+安装全部桌宠：
 
-安装后重新打开 Codex，或在 Pets 设置中刷新，然后选择 **HJJ**。
+```bash
+./install.sh --all
+```
+
+如果设置了 `CODEX_HOME`，脚本使用 `$CODEX_HOME/pets/`；否则使用默认的 `~/.codex/pets/`。安装后重新打开 Codex，或刷新 Pets 设置，再选择对应桌宠。
 
 ### 手动安装
 
-将 pet/hjj/ 整个目录复制到 Codex 自定义宠物目录：
+把 `pets/<桌宠ID>/` 整个目录复制到：
 
-    $CODEX_HOME/pets/hjj/
-    ├── pet.json
-    └── spritesheet.webp
+```text
+$CODEX_HOME/pets/<桌宠ID>/
+```
 
-仅需这两个文件即可使用。请保持文件名不变，并让它们位于同一个 hjj 目录中。
+每个目录只需要以下两个运行文件：
 
-## 资源规格
-
-- Codex 自定义宠物 v2
-- 8 列 × 11 行，单格 192 × 208 像素
-- 精灵图 1536 × 2288，RGBA WebP
-- 含 9 个标准动画状态和 16 个视线方向
-- 当前图集校验报告见 verification/
-
-## 源码与构建
-
-scripts/ 中有 Python/Pillow 图集构建工具；它们不是桌宠运行时依赖。安装 HJJ 不需要 Python。构建参数详见 [scripts/README.md](scripts/README.md)。
-
-    python -m pip install -r scripts/requirements.txt
-    python scripts/hjj_pet_builder.py --help
-    python scripts/hjj_fused_running_builder.py --help
-
-构建器需要源图像作为输入：基础构建器需要 HJJ 分镜图和 [Nai-wa 精灵图](third_party/nai-wa/spritesheet.webp)；融合跑步构建器还需要基础图集与 4×2 的跑步参考图。原始 HJJ 分镜图和中间生成提示没有随发布包提供；最终可安装图集已包含在 pet/hjj/ 中。上游 Nai-wa 素材的署名和许可见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
-
-## 许可证
-
-- Python 源码、安装脚本、配置和文档：[MIT](LICENSE)。
-- HJJ 原创美术和改编图集：[CC BY 4.0](ASSET-LICENSE.md)。
-- Nai-wa 上游素材：按其原有 CC BY 4.0 条款保留署名，见 [上游许可](third_party/nai-wa/ASSET-LICENSE.md)。
-
-使用或改编美术时请保留署名、许可证链接并说明修改。第三方素材许可不代表获得其原型形象可能涉及的其他权利；详见第三方说明。
-
-## 协作
-
-欢迎通过 Issue 和 Pull Request 提交改进。请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，尤其是代码与美术素材分别适用的许可证和第三方署名要求。
-
-准备上传到 GitHub 时，可按 [PUBLISHING.md](PUBLISHING.md) 操作。
+```text
+pet.json
+spritesheet.webp
+```
 
 ## 文件结构
 
-    .
-    ├── assets/                  # README 预览图
-    ├── pet/hjj/                 # 可直接安装的桌宠资源
-    ├── scripts/                 # Python 构建工具
-    ├── third_party/nai-wa/      # 构建所需的上游参考图及原许可
-    ├── verification/            # 图集校验记录
-    ├── ASSET-LICENSE.md         # HJJ 美术许可
-    ├── CONTRIBUTING.md
-    ├── LICENSE                  # MIT（源码、安装脚本、文档与配置）
-    ├── PUBLISHING.md            # 上传到 GitHub 的步骤
-    ├── THIRD-PARTY-NOTICES.md
-    ├── checksums.sha256
-    ├── install.ps1
-    └── install.sh
+```text
+.
+├── pets/                         # 每款桌宠一个独立目录
+│   ├── hjj/
+│   ├── afro-suit-pet/
+│   ├── green-horse-rider-pet/
+│   ├── muscle-black-shirt-pet/
+│   └── teal-hair-pet/
+├── assets/                       # README 预览图，不是安装必需文件
+├── scripts/                      # HJJ 图集构建工具
+├── third_party/nai-wa/           # HJJ 构建所需的上游素材及许可说明
+├── verification/                 # 图集结构校验记录
+├── install.ps1
+├── install.sh
+├── LICENSE                       # MIT：代码、脚本、文档和配置
+└── ASSET-LICENSE.md              # CC BY 4.0：项目美术资产
+```
+
+HJJ 的构建脚本仍然只负责 HJJ 图集；其他桌宠已经提供最终可安装图集，不需要运行 HJJ 构建器。图集规格为 8 列 × 11 行、单格 192 × 208 像素、总尺寸 1536 × 2288、RGBA WebP，并带有 `spriteVersionNumber: 2`。
+
+## 许可证与发布前检查
+
+- `scripts/`、安装脚本、文档和配置：MIT，见 [LICENSE](LICENSE)。
+- 项目原创或有权授权的桌宠美术、精灵图和预览图：CC BY 4.0，见 [ASSET-LICENSE.md](ASSET-LICENSE.md)。
+- Nai-wa 上游素材继续遵守其原有许可和署名要求，见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
+- 由人物照片生成的桌宠还可能涉及肖像权、隐私权或其他人格权；公开上传前，请确认你有权公开这些照片对应的形象和改编作品。许可证不会自动授予这些额外权利。
+
+欢迎通过 Issue 和 Pull Request 提交新的桌宠或改进。协作规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。

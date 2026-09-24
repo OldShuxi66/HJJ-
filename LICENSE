@@ -4,8 +4,9 @@ Copyright (c) 2026 OldShuxi66
 
 Scope: this MIT License applies to the software source files in scripts/, the
 installation scripts, documentation, and configuration/metadata files in this
-repository. It does not apply to artwork or third-party materials. HJJ artwork
-is covered by ASSET-LICENSE.md; third-party materials retain their own notices.
+repository. It does not apply to artwork or third-party materials. Project
+artwork is covered by ASSET-LICENSE.md; third-party materials retain their own
+notices.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
